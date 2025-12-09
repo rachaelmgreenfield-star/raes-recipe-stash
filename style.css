@@ -25,6 +25,14 @@ body {
   background-color: #f3f4f7;
 }
 
+.background-body {
+  background-image: url("public/img/utensils.svg");
+}
+
+i {
+  color: #059b6e;
+}
+
 a {
   color: #f0af2d;
 }
@@ -50,6 +58,7 @@ header {
   width: 90%;
   max-width: 1200px;
   margin: 10px;
+  min-height: 35px;
 }
 
 body {
@@ -89,12 +98,22 @@ ol > li {
 
 h1 {
   width: 100%;
+  margin-top: 0;
 }
 
 .link-list > a {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
+}
+
+ul {
+  padding: 0 1.5rem;
+}
+
+ol {
+  box-sizing: border-box;
+  padding: 0.5rem 2.8rem;
 }
 
 ul > li {
@@ -189,4 +208,24 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .recipe-info {
+    justify-content: center;
+  }
+
+  .info-box:first-child {
+    padding-left: 0;
+  }
 }
