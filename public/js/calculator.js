@@ -11,16 +11,16 @@ const units = {
   },
 };
 
-let calculator = document.getElementsByClassName("calculator-wrapper")[0];
 let selectedInput = units.Fahrenheit;
 let selectedOutput = selectedInput.Celsius;
 
-/* Show/display buttons */
+/* Calculator container */
 
-document
-  .getElementsByTagName("main")[0]
-  .appendChild(document.createElement("div"))
-  .classList.add("calculator-wrapper", "hidden");
+let calculator = document.createElement("div");
+calculator.classList.add("calculator-wrapper", "hidden");
+document.getElementsByTagName("main")[0].appendChild(calculator);
+
+/* Show/display buttons */
 
 document
   .getElementsByClassName("calculator-icon")[0]
