@@ -18,22 +18,32 @@ h2 {
   font-size: 1.5rem;
 }
 
+select,
+input {
+  font-size: 1rem;
+  font-family: "Lexend", sans-serif;
+}
+
 /* Colors */
 
-body {
+body,
+select,
+input {
   color: #014135;
   background-color: #f3f4f7;
 }
 
-.background-body {
-  background-image: url("public/img/utensils.svg");
+.calculator-wrapper {
+  background-color: #014135;
 }
 
 i {
-  color: #059b6e;
+  color: #888888;
 }
 
-a {
+a,
+.calculator-icon svg,
+.on-switch-wrapper svg {
   color: #f0af2d;
 }
 
@@ -41,24 +51,24 @@ li::marker {
   color: #f0af2d;
 }
 
+.slider {
+  background-color: #ccc;
+}
+
 input:checked + .slider {
   background-color: #014135;
 }
 
 /* Layout */
+
+.hidden {
+  /* display: none !important; */
+  height: 0 !important;
+}
+
 html {
   width: 100%;
   height: 100%;
-}
-
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1200px;
-  margin: 10px;
-  min-height: 35px;
 }
 
 body {
@@ -70,16 +80,50 @@ body {
   flex-direction: column;
 }
 
+.background-body {
+  background-image: url("public/img/utensils.svg");
+}
+
+/* Header */
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+  max-width: 1200px;
+  margin: 10px;
+  min-height: 35px;
+}
+
+header.left-align {
+  justify-content: space-between;
+}
+
+header > * {
+  cursor: pointer;
+  height: 25px;
+}
+
 .on-switch-wrapper {
   display: flex;
   align-items: center;
 }
 
-.back-button {
+.back-button,
+.sun,
+.calculator-icon {
   height: 25px;
   width: 25px;
   opacity: 85%;
 }
+
+header svg {
+  height: 25px;
+  width: 25px;
+}
+
+/* Recipe Layout */
 
 main {
   width: 90%;
@@ -87,7 +131,7 @@ main {
   max-width: 1200px;
 }
 
-ol > li {
+li {
   padding: 0.1rem 0;
 }
 
@@ -108,7 +152,18 @@ h1 {
 }
 
 ul {
-  padding: 0 1.5rem;
+  padding: 0 2.5rem;
+}
+
+ul li {
+  text-indent: -1rem; /* Negative indent to pull the first line left */
+  padding-left: 1rem; /* Padding to create space for the pseudo-element */
+}
+
+ul li::before {
+  display: inline-block; /* Allows width to be set */
+  width: 1rem; /* Width of the pseudo-element */
+  margin-left: -1rem; /* Pulls the pseudo-element back to the left edge */
 }
 
 ol {
@@ -165,9 +220,8 @@ li::marker {
   margin-left: 10px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
-  opacity: 0;
+  opacity: 0; /* Hide default HTML checkbox */
   width: 0;
   height: 0;
 }
@@ -179,7 +233,6 @@ li::marker {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -210,8 +263,64 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+/* Calculator */
+
+.calculator-wrapper {
+  height: 10vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-out;
+  overflow: hidden;
+}
+
+.calculator-group {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.calculator-group * {
+  width: 40%;
+  box-sizing: border-box;
+}
+
+.calculator-close {
+  width: 25px;
+  height: 25px;
+  color: #f0af2d;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-image: url("public/img/close.svg");
+}
+
+input,
+select {
+  border-radius: 5px;
+  border: none;
+  padding-left: 25px;
+}
+
+input.no-arrows::-webkit-outer-spin-button,
+input.no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input.no-arrows[type="number"] {
+  -moz-appearance: textfield;
+}
+
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   h1 {
     font-size: 2.5rem;
     text-align: center;
@@ -227,5 +336,20 @@ input:checked + .slider:before {
 
   .info-box:first-child {
     padding-left: 0;
+  }
+
+  .calculator-wrapper {
+    height: 15vh;
+    justify-content: end;
+    /* padding-bottom: 15px; */
+  }
+
+  .calculator-group:last-child {
+    margin-bottom: 15px;
+  }
+
+  select,
+  input {
+    height: 25px;
   }
 }
