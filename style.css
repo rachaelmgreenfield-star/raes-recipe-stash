@@ -362,12 +362,12 @@ input.no-arrows[type="number"] {
   }
 
   .calculator-wrapper {
-    height: 15vh;
+    height: 20vh;
     justify-content: end;
   }
 
   .calculator-group:last-child {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
   }
 
   select,
