@@ -99,6 +99,10 @@ header.left-align {
   justify-content: space-between;
 }
 
+header.left-align > * {
+  text-align: left;
+}
+
 header > * {
   cursor: pointer;
   height: 25px;
@@ -132,7 +136,7 @@ header svg {
 main {
   width: 90%;
   margin: 0 5%;
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 li {
