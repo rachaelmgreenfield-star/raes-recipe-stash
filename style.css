@@ -97,6 +97,7 @@ header {
 
 header.left-align {
   justify-content: space-between;
+  max-width: 1000px;
 }
 
 header.left-align > * {
